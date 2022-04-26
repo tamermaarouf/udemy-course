@@ -1,0 +1,33 @@
+{
+  "name": "file_uploaded",
+  "version": "1.0.0",
+  "description": "File upload multer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tamermaarouf/udacity-course.git"
+  },
+  "author": "Tamer_Maarouf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamermaarouf/udacity-course/issues"
+  },
+  "homepage": "https://github.com/tamermaarouf/udacity-course#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.28",
+    "eslint": "^8.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
