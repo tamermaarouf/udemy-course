@@ -1,6 +1,6 @@
 import chalk from "chalk";
 import yargs from 'yargs';
-import addNotes from './utiles/utils.js';
+import notes from './utiles/utils.js';
 
 // --- ADD COMMAND ----
 yargs.command({
@@ -19,7 +19,7 @@ yargs.command({
     }
   },
   handler: function (argv) {
-    addNotes(argv.title, argv.body);
+    notes.addNotes(argv.title, argv.body);
   }
 });
 
@@ -35,6 +35,7 @@ yargs.command({
     }
   },
   handler: function (argv) {
+    notes.removeNote(argv.title);
     console.log('Removing your notes, sir...', argv.title);
   }
 });
