@@ -9,7 +9,7 @@ const sum = utils.add(4, 4);
 
 console.log(utils.name);
 console.log(sum);
-console.log(chalk.redBright.inverse.bold('Tamer Maarouf in redBright text'));
+console.log(chalk.whiteBright.inverse.bold('Tamer Maarouf in redBright text'));
 console.log(chalk.green('Success'));
 console.log(validator.isEmail('tamermaarouf@gmail.com'));
 

@@ -1,40 +1,57 @@
+import chalk from 'chalk';
 import fs from 'fs';
 
-const addNotes = function (title, body) {
+const addNotes = (title, body) => {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(function (note) {
-        return note.title === title;
-    });
+    const duplicateNote = notes.find(note => note.title === title);
+    console.log(duplicateNote);
 
-    if (duplicateNotes.length === 0) {
+    if (!duplicateNote) {
         notes.push({
             title: title,
             body: body
         });
         saveNotes(notes);
         console.log('New note added');
-    }else {
+    } else {
         console.log('note title taken!');
     }
 };
 
-const removeNote = function (title){
+const removeNote = (title) => {
     const notes = loadNotes();
-    // const duplicateNotes = notes.filter(function (note) {
-    //     return note.title === title;
-    // });
     notes.splice(notes.findIndex(note => note.title === title), 1);
     saveNotes(notes);
 
-}
+};
 
-const saveNotes = function (notes) {
+const listNote = () => {
+    const notes = loadNotes();
+    console.log(chalk.inverse.bgCyanBright('listing your notes, sir...'));
+    notes.forEach(note => {
+        console.log(note.title);
+    });
+};
+
+const readNote = (title) => {
+    const notes = loadNotes();
+    console.log(chalk.inverse.bgCyanBright('reading your notes, sir...'));
+    const findNote = notes.find(note => note.title === title);
+    if(findNote){
+        console.log(findNote.title);
+        console.log(findNote.body);        
+    }else {
+        console.log(chalk.red.inverse('Note not found'));
+    }
+};
+
+const saveNotes = (notes) => {
     // Convert Object to JSON FILE
     const addNotes = JSON.stringify(notes);
     fs.writeFileSync('1-json.json', addNotes);
-}
+};
 
-const loadNotes = function () {
+const loadNotes = () => {
     try {
         const dataBuffer = fs.readFileSync('1-json.json');
         const dataJSON = dataBuffer.toString();
@@ -48,5 +65,7 @@ const loadNotes = function () {
 
 export default {
     addNotes,
-    removeNote
+    removeNote,
+    listNote,
+    readNote
 };
